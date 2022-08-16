@@ -3,7 +3,6 @@
 sudo -v
 
 echo ' '
-echo "This script will install Mason Choat's dotfiles."
 echo "Make sure to adapt this script to your needs and preferences before using it."
 echo "An internet connection is needed to use this script."
 echo ' '
