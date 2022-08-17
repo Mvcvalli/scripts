@@ -44,6 +44,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Installing vim-plug (Neovim)
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+       
+# Installing vim & nvim plugins.
+nvim -c "PlugInstall|q|q"
+vim -c "PlugInstall|q|q"
+
 cd ~
 rm -rf Repo
 
