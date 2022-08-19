@@ -31,6 +31,7 @@ cd ~/Repo/dotfiles/.config/nvim
 rm -rf .git
 cd ~
 rm -rf .config # One could exist, idk.
+rm -rf .local  # Again, one could exist, idk.
 
 # Moving shit around
 mv ~/Repo/dotfiles/.config ~/
