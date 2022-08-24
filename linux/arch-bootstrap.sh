@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "An internet connection is needed to use this script."
 echo "Before running this script make sure to adapt it to your needs and preferences before using it."
 echo "This script to work it must be in your home directory"
