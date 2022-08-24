@@ -21,7 +21,7 @@ cd ~
 sudo pacman -Syu
 
 # Set up YAY (AUR Helper)
-sudo pacman -S base-devel
+sudo pacman -S git base-devel
 cd ~/.config
 git clone https://aur.archlinux.org/yay.git
 cd yay
