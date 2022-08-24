@@ -94,4 +94,4 @@ cd ~
 rm -rf Repo
 
 echo ''
-echo "Install complete"
+echo "Install complete..."
