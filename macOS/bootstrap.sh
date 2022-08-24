@@ -38,11 +38,12 @@ alacritty
 mailspring
 librewolf
 mpv
+onyx
 qbittorrent
 )
 
-brew install ${brew[@]} #Homebrew App Installer
-brew cask install ${cask[@]} #Casks Installer
+brew install ${brew[@]}        #Homebrew App Installer
+brew install --cask ${cask[@]} #Casks Installer
 
 # Installing Kristall (Graphical Gemini & Gopher client)
 cd ~
@@ -89,4 +90,3 @@ rm -rf Repo
 
 echo ''
 echo "Install complete"
-
