@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo -v
-
 echo ' '
 echo "Make sure to adapt this script to your needs and preferences before using it."
 echo "An internet connection is needed to use this script."
@@ -13,8 +11,8 @@ echo ''
 echo "Starting install..."
 echo ''
 
-# Moving to home directory.
-cd ~
+sudo -v #Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
+cd ~    #Moving to home directory at the beginning of the process.
 
 # Installing dotfiles.
 mkdir Repo
