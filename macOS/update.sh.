@@ -20,6 +20,11 @@ brew cleanup -s
 brew -v cleanup --prune=2
 
 echo ' ' 
+echo "Updating Neovim and Vim Plugins..."
+nvim -c "PlugUpdate|q|q"
+vim -c "PlugUpdate|q|q"
+
+echo ' ' 
 echo "Recursively deleting `.DS_Store` files..."
 sudo find . -type f -name '*.DS_Store' -ls -delete
 
@@ -32,3 +37,6 @@ echo "Emptying the Trash on all mounted volumes and the main HDD."
 echo "Also, clearing Apple’s System Logs to improve shell startup speed."
 echo "Finally, clear download history from quarantine."
 sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
+
+echo ' ' 
+echo "All done!" 
