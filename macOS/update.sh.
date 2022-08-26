@@ -11,8 +11,8 @@ echo ' '
 echo "Updating Applications..."
 brew upgrade 
 brew update
-brew cask update --greedy
-brew cask upgrade --greedy
+brew --cask update --greedy
+brew --cask upgrade --greedy
 
 echo ' ' 
 echo "Cleaning caches & directories..."
