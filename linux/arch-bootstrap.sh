@@ -31,7 +31,7 @@ cd ~
 # Installing packages
 pacman=(
 alacritty
-neovim
+#neovim
 vim
 mpv
 fish
@@ -63,9 +63,14 @@ git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
 cd ~
 
 # Installing nvim config.
-cd ~/Repo/dotfiles/.config
-git clone --depth 1 https://github.com/Mvcvalli/nvim.git
-cd ~
+# cd ~/Repo/dotfiles/.config
+# git clone --depth 1 https://github.com/Mvcvalli/nvim.git
+# cd ~
+
+# Installing ble.sh
+git clone --recursive https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
 # Removing unnecessary files
 rm -rf .config # One could exist, idk.
@@ -84,11 +89,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Installing vim-plug (Neovim)
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Installing vim & nvim plugins.
-nvim -c "PlugInstall|q|q"
+# nvim -c "PlugInstall|q|q"
 vim -c "PlugInstall|q|q"
 
 # Removing unnecessary files
