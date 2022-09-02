@@ -31,12 +31,10 @@ cd ~
 # Installing packages
 pacman=(
 alacritty
-#neovim
 vim
 mpv
 fish
 exa
-python-pip
 xdg-user-dirs
 zathura
 zathura-djvu
@@ -46,54 +44,40 @@ zathura-pdf-mupdf
 yay=(
 newsboat-git
 librewolf
-)
-
-pip=(
-ueberzug
+kwin-bismuth
 )
 
 sudo pacman -S ${pacman[@]}
 yay -S ${yay[@]}
-sudo pip3 install ${pip[@]}
+
+# Removing unnecessary files.
+cd ~
+rm -rf .config
 
 # Installing dotfiles.
 mkdir Repo
 cd Repo
-git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
+git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
 cd ~
 
-# Installing nvim config.
-# cd ~/Repo/dotfiles/.config
-# git clone --depth 1 https://github.com/Mvcvalli/nvim.git
-# cd ~
+# Moving shit around
+mv ~/Repo/.dotfiles/.config ~/
+mv ~/Repo/.dotfiles/.newsboat ~/
+mv ~/Repo/.dotfiles/.vimrc ~/
+mv ~/Repo/.dotfiles/.bash_profile ~/
+mv ~/Repo/.dotfiles/.bashrc ~/
+cd ~
 
 # Installing ble.sh
 git clone --recursive https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
-# Removing unnecessary files
-rm -rf .config # One could exist, idk.
-rm -rf .local  # Again, one could exist, idk.
-cd ~/Repo/dotfiles/.config/nvim
-rm -rf .git
-
-# Moving shit around
-mv ~/Repo/dotfiles/.config ~/
-mv ~/Repo/dotfiles/.newsboat ~/
-mv ~/Repo/dotfiles/.vimrc ~/
-cd ~
-
 # Installing vim-plug (Vim)
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Installing vim-plug (Neovim)
-# sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Installing vim & nvim plugins.
-# nvim -c "PlugInstall|q|q"
+# Installing vim plugins.
 vim -c "PlugInstall|q|q"
 
 # Removing unnecessary files
