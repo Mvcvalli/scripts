@@ -11,8 +11,8 @@ echo ' '
 echo "Updating Applications..."
 brew upgrade 
 brew update
-brew --cask update --greedy
-brew --cask upgrade --greedy
+brew update --cask --greedy
+brew upgrade --cask --greedy
 
 echo ' ' 
 echo "Cleaning caches & directories..."
@@ -21,7 +21,7 @@ brew -v cleanup --prune=2
 
 echo ' ' 
 echo "Updating Neovim and Vim Plugins..."
-nvim -c "PlugUpdate|q|q"
+#nvim -c "PlugUpdate|q|q"
 vim -c "PlugUpdate|q|q"
 
 echo ' ' 
