@@ -40,6 +40,14 @@ echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Installing scripts
+cd .local
+git clone --depth 1 https://github.com/Mvcvalli/scripts.git
+cd scripts 
+rm -rf .git macOS zsh
+cd linux
+chmod +x arch-update.sh 
+
 # Installing vim & nvim plugins.
 vim -c "PlugInstall|q|q"
 
