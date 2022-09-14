@@ -23,6 +23,7 @@ cd ~
 # Removing unnecessary files.
 rm -rf .config # One could exist, idk.
 rm -rf .local  # Again, one could exist, idk.
+rm -rf .newsboat
 
 # Moving shit around.
 mv ~/Repo/.dotfiles/.config ~/
@@ -48,7 +49,7 @@ rm -rf .git macOS zsh
 cd linux
 chmod +x arch-update.sh 
 
-# Installing vim & nvim plugins.
+# Installing vim plugins.
 vim -c "PlugInstall|q|q"
 
 cd ~
