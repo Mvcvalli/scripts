@@ -20,13 +20,11 @@ if test ! $(which brew); then
 fi
 
 echo "Updating homebrew..."
-brew update
-brew upgrade
+brew update && brew upgrade
 
 echo "Installing packages..."
 brew=(
 git
-neovim
 vim
 fish
 exa
@@ -51,15 +49,14 @@ brew install qt@5 openssl
 brew link qt5 # to enable use of qmake
 git clone --depth 1 https://github.com/MasterQ32/kristall.git
 make build/kristall
+cd ~
 
 echo "Installing dotfiles..."
-cd ~
-mkdir Repo
-cd Repo
+mkdir Repo && cd Repo
 git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
+cd ~
 
 # Removing unnecessary files.
-cd ~
 rm -rf .config # One could exist, idk.
 rm -rf .local  # Again, one could exist, idk.
 cd ~/Repo/dotfiles/.config/nvim
@@ -77,12 +74,7 @@ echo "Installing vim-plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Installing vim-plug (Neovim)
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-echo "Installing Neovim Plugins..."
-nvim -c "PlugInstall|q|q"
+echo "Installing Vim Plugins..."
 vim -c "PlugInstall|q|q"
 
 cd ~
