@@ -4,19 +4,15 @@ echo ' '
 echo "Make sure to adapt this script to your needs and preferences before using it."
 echo "An internet connection is needed to use this script."
 echo ' '
-echo "Press [ENTER] key when ready to continue"
+echo "Press [ENTER] key when ready to begin install."
 read y
-
-echo ''
-echo "Starting install..."
-echo ''
+echo ' '
 
 sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
 cd ~    # Moving to home directory at the beginning of the process.
 
 # Installing dotfiles.
-mkdir Repo
-cd Repo
+mkdir Repo && cd Repo
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
 cd ~
 
@@ -44,10 +40,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Installing scripts
 cd .local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
-cd scripts 
-rm -rf .git macOS zsh
-cd linux
-chmod +x arch-update.sh 
+cd scripts/linux
+chmod +x arch-cleanup.sh arch-update.sh dots-install.sh arch-bootstrap.sh
+cd .. && rm -rf macOS zsh 
+cd ~ 
 
 # Installing vim plugins.
 vim -c "PlugInstall|q|q"
