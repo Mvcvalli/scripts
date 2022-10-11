@@ -18,6 +18,7 @@ cd ~    #Moving to home directory at the beginning of the process.
 mkdir Repo
 cd Repo
 git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
+cd ~
 
 # Installing nvim config.
 cd ~/Repo/dotfiles/.config
@@ -25,9 +26,6 @@ git clone --depth 1 https://github.com/Mvcvalli/nvim.git
 cd ~
 
 # Removing unnecessary files
-cd ~/Repo/dotfiles/.config/nvim
-rm -rf .git
-cd ~
 rm -rf .config # One could exist, idk.
 rm -rf .local  # Again, one could exist, idk.
 
@@ -35,17 +33,13 @@ rm -rf .local  # Again, one could exist, idk.
 mv ~/Repo/dotfiles/.config ~/
 mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vim ~/
+cd~
 
 # Installing vim-plug (Vim)
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Installing vim-plug (Neovim)
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
        
-# Installing vim & nvim plugins.
-nvim -c "PlugInstall|q|q"
+# Installing Vim plugins.
 vim -c "PlugInstall|q|q"
 
 cd ~
