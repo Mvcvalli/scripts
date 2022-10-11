@@ -34,7 +34,7 @@ rm -rf .local  # Again, one could exist, idk.
 # Moving shit around
 mv ~/Repo/dotfiles/.config ~/
 mv ~/Repo/dotfiles/.newsboat ~/
-mv ~/Repo/dotfiles/.vimrc ~/
+mv ~/Repo/dotfiles/.vim ~/
 
 # Installing vim-plug (Vim)
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
