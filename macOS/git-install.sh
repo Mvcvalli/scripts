@@ -11,18 +11,13 @@ echo ''
 echo "Starting install..."
 echo ''
 
-sudo -v #Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
-cd ~    #Moving to home directory at the beginning of the process.
+sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
+cd ~    # Moving to home directory at the beginning of the process.
 
 # Installing dotfiles.
 mkdir Repo
 cd Repo
 git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
-cd ~
-
-# Installing nvim config.
-cd ~/Repo/dotfiles/.config
-git clone --depth 1 https://github.com/Mvcvalli/nvim.git
 cd ~
 
 # Removing unnecessary files
