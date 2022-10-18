@@ -37,6 +37,15 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Installing Vim plugins.
 vim -c "PlugInstall|q|q"
 
+# Installing scripts.
+cd ~/.local
+git clone --depth 1 https://github.com/Mvcvalli/scripts.git
+cd scripts
+rm -rf .git linux zsh
+cd macOS chmod +x git-install.sh update.sh
+cd .. & cd nvim
+chmod +x nvim-config-install.sh
+
 cd ~
 rm -rf Repo
 
