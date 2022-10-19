@@ -48,3 +48,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Updating Vim plugins.
 vim -c "PlugUpdate|q|q"
+
+cd $HOME
+rm -rf Repo
