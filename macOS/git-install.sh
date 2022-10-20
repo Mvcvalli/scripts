@@ -13,6 +13,7 @@ cd $HOME # Moving to home directory at the beginning of the process.
 # Removing unnecessary files.
 rm -rf .config # One could exist, idk.
 rm -rf .local  # Again, one could exist, idk.
+rm -rf .cache
 rm -rf .newsboat
 rm -rf .vim
 cd $HOME
