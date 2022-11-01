@@ -40,7 +40,7 @@ cd macOS
 chmod +x git-install.sh update.sh
 cd ..  
 cd nvim
-chmod +x nvim-config-install.sh
+chmod +x nvim-config-install.sh uninstall-nvim.sh
 cd $HOME
 
 # Installing vim-plug.
