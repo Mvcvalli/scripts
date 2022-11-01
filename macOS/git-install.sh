@@ -37,10 +37,10 @@ git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 cd scripts
 rm -rf .git linux zsh
 cd macOS 
-chmod +x git-install.sh update.sh
+chmod +x git-install.sh && chmod +x update.sh
 cd ..  
 cd nvim
-chmod +x nvim-config-install.sh uninstall-nvim.sh
+chmod +x nvim-config-install.sh && chmod +x uninstall-nvim.sh
 cd $HOME
 
 # Installing vim-plug.
