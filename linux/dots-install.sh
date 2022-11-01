@@ -8,13 +8,13 @@ echo "Press [ENTER] key when ready to begin install."
 read y
 echo ' '
 
-sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
-cd ~    # Moving to home directory at the beginning of the process.
+sudo -v  # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
+cd $HOME # Moving to home directory at the beginning of the process.
 
 # Installing dotfiles.
 mkdir Repo && cd Repo
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
-cd ~
+cd $HOME
 
 # Removing unnecessary files.
 rm -rf .config # One could exist, idk.
@@ -43,10 +43,12 @@ git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 cd scripts/linux
 chmod +x arch-cleanup.sh arch-update.sh dots-install.sh arch-bootstrap.sh
 cd .. && rm -rf macOS zsh 
-cd ~ 
+cd nvim
+chmod +x nvim-config-install.sh uninstall-nvim.sh
+cd $HOME
 
 # Installing vim plugins.
 vim -c "PlugInstall|q|q"
 
-cd ~
+cd $HOME
 rm -rf Repo
