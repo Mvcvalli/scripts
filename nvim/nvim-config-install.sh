@@ -11,3 +11,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 cd ~/.config
 git clone --depth 1 https://github.com/Mvcvalli/nvim
 cd ~
+
+cd ~/.config/nvim
+rm -rf .git
+cd ~
