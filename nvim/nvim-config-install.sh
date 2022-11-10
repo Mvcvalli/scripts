@@ -9,9 +9,10 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
  
 cd ~/.config
-git clone --depth 1 https://github.com/Mvcvalli/nvim
+git clone --depth 1 https://github.com/Mvcvalli/nvim.git
 cd ~
 
 cd ~/.config/nvim
 rm -rf .git
+rm -rf .gitattributes
 cd ~
