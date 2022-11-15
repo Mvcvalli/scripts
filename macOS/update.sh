@@ -20,8 +20,9 @@ brew cleanup -s
 brew -v cleanup --prune=2
 
 echo ' ' 
-echo "Updating Neovim and Vim Plugins..."
-#nvim -c "PlugUpdate|q|q"
+echo "Updating Vim Plugins..."
+vim -c "PlugClean|q|q"
+vim -c "PlugUpgrade|q|q"
 vim -c "PlugUpdate|q|q"
 
 echo ' ' 
