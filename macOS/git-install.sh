@@ -48,7 +48,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Updating Vim plugins.
-vim -c "PlugUpdate|q|q"
+vim -c "PlugInstall|q|q"
 
 cd $HOME
 rm -rf Repo
