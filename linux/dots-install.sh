@@ -48,7 +48,9 @@ chmod +x nvim-config-install.sh uninstall-nvim.sh
 cd $HOME
 
 # Installing vim plugins.
-vim -c "PlugInstall|q|q"
+vim -c "PlugClean|q|q"
+vim -c "PlugUpgrade|q|q"
+vim -c "PlugUpdate|q|q"
 
 cd $HOME
 rm -rf Repo
