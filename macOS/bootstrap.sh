@@ -7,8 +7,8 @@ echo ' '
 echo "Press [ENTER] key when ready to continue"
 read y
 
-sudo -v #Give sudo privileges ahead of time, so that we hopefully only have to enter a password once
-cd ~ 	#Moving to home directory at the beginning of the process
+sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once
+cd ~ 	  # Moving to home directory at the beginning of the process
 
 echo "Installing Xcode..."
 xcode-select --install
@@ -68,14 +68,6 @@ mv ~/Repo/dotfiles/.config ~/
 mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vimrc ~/
 cd ~
-
-echo "Installing vim-plug..."
-# Installing vim-plug (Vim)
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "Installing Vim Plugins..."
-vim -c "PlugInstall|q|q"
 
 cd ~
 rm -rf Repo
