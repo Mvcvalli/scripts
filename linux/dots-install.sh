@@ -33,10 +33,6 @@ git clone --recursive https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
-# Installing vim-plug (Vim)
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # Installing scripts
 cd .local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
@@ -46,11 +42,6 @@ cd .. && rm -rf macOS zsh
 cd nvim
 chmod +x nvim-config-install.sh uninstall-nvim.sh
 cd $HOME
-
-# Installing vim plugins.
-vim -c "PlugClean|q|q"
-vim -c "PlugUpgrade|q|q"
-vim -c "PlugUpdate|q|q"
 
 cd $HOME
 rm -rf Repo
