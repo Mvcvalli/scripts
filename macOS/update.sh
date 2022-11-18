@@ -18,12 +18,13 @@ echo ' '
 echo "Cleaning caches & directories..."
 brew cleanup -s
 brew -v cleanup --prune=2
+rm -rf "$(brew --cache)"
 
 echo ' ' 
 echo "Updating Vim Plugins..."
-vim -c "PlugClean|q|q"
-vim -c "PlugUpgrade|q|q"
-vim -c "PlugUpdate|q|q"
+vim -es -u vimrc -i NONE -c "PlugClean" -c "qa"
+vim -es -u vimrc -i NONE -c "PlugUpgrade" -c "qa"
+vim -es -u vimrc -i NONE -c "PlugUpdate" -c "qa"
 
 echo ' ' 
 echo "Recursively deleting `.DS_Store` files..."
