@@ -73,13 +73,6 @@ git clone --recursive https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
-# Installing vim-plug (Vim)
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Installing vim plugins.
-vim -c "PlugInstall|q|q"
-
 # Removing unnecessary files
 cd ~
 rm -rf Repo
