@@ -29,6 +29,7 @@ vim
 fish
 exa
 newsboat
+pipes-sh
 )
 
 cask=(
