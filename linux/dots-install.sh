@@ -38,9 +38,12 @@ cd .local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 cd scripts/linux
 chmod +x arch-cleanup.sh arch-update.sh dots-install.sh arch-bootstrap.sh
-cd .. && rm -rf macOS zsh 
+cd .. && rm -rf macOS 
 cd nvim
 chmod +x nvim-config-install.sh uninstall-nvim.sh
+cd..
+cd zsh
+chmod +x install.sh
 cd $HOME
 
 cd $HOME
