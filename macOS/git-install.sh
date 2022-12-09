@@ -37,10 +37,14 @@ git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 cd scripts
 rm -rf .git linux zsh
 cd macOS 
-chmod +x git-install.sh && chmod +x update.sh && cleanup.sh
+chmod +x git-install.sh && chmod +x update.sh 
 cd ..  
 cd nvim
 chmod +x nvim-config-install.sh && chmod +x uninstall-nvim.sh
+cd ..
+cd zsh
+chmod +x install.sh
+rm -rf old
 cd $HOME
 
 cd $HOME
