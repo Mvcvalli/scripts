@@ -8,3 +8,4 @@ cd ~/.config
 git clone --depth 1 https://github.com/Mvcvalli/zsh.git
 cd zsh
 mv .zshenv ~/
+rm -rf .git
