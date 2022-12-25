@@ -31,6 +31,7 @@ sudo find . -type f -name '*.DS_Store' -ls -delete
 
 echo ' '
 echo "Cleaning caches & directories..."
+brew autoremove
 brew cleanup -s
 brew -v cleanup --prune=2
 rm -rf "$(brew --cache)"
