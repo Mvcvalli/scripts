@@ -26,8 +26,6 @@ cd macOS
 
 chmod +x bootstrap.sh cleanup.sh git-install.sh update.sh
 
-cd ..
-
 cd nvim
 
 chmod +x nvim-config-install.sh uninstall-nvim.sh
