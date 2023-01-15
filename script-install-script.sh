@@ -36,4 +36,4 @@ cd ..
 
 cd zsh
 
-c
+chmod +x install.sh
