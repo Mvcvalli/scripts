@@ -28,10 +28,12 @@ chmod +x bootstrap.sh cleanup.sh git-install.sh update.sh
 
 cd nvim
 
-chmod +x nvim-config-install.sh uninstall-nvim.sh
+chmod +x ~/.local/scripts/macOS/nvim/\ nvim-config-install.sh
+chmod +x uninstall-nvim.sh
 
+cd ..
 cd ..
 
 cd zsh
 
-chmod +x install.sh
+c
