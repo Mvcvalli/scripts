@@ -45,7 +45,10 @@ brew install ${brew[@]}        #Homebrew App Installer
 brew install --cask ${cask[@]} #Casks Installer
 
 # Uninstall Unneeded Dependencies.
-brew uninstall --ignore-dependencies ffmpeg gnutls libbluray python@3.10 python@3.11 python@3.9 yt-dlp
+brew uninstall --ignore-dependencies ffmpeg gnutls libbluray python@3.10 python@3.11 yt-dlp
+
+rm -rf /usr/local/etc/gnutls
+rm -rf /usr/local/etc/gnutls/cert.pem
 
 # Installing Kristall (Graphical Gemini & Gopher client)
 cd ~
