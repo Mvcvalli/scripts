@@ -44,6 +44,10 @@ qbittorrent
 brew install ${brew[@]}        #Homebrew App Installer
 brew install --cask ${cask[@]} #Casks Installer
 
+# Installing sxiv 
+brew install sxiv
+brew install --formula $(brew --repository homebrew/core)/Formula/sxiv.rb
+
 # Uninstall Unneeded Dependencies.
 brew uninstall --ignore-dependencies ffmpeg gnutls libbluray python@3.10 python@3.11 yt-dlp
 
