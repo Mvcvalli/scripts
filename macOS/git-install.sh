@@ -32,20 +32,24 @@ cd $HOME
 
 # Installing scripts.
 mkdir .local
-cd .local
+cd ~/.local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
-cd scripts
-rm -rf .git linux
-cd macOS 
-chmod +x git-install.sh && chmod +x update.sh && chmod +x cleanup.sh 
-cd ..  
+cd scripts; rm -rf .git
+cd linux/arch
+chmod +x arch-bootstrap.sh; chmod +x arch-cleanup.sh; chmod +x arch-update.sh
+cd ..
+cd debian
+chmod +x postinstall.sh
+cd ..
+cd ..
+cd macOS
+chmod +x bootstrap.sh; chmod +x cleanup.sh; chmod +x git-install.sh; chmod +x update.sh
 cd nvim
-chmod +x nvim-config-install.sh && chmod +x uninstall-nvim.sh
+chmod +x \ nvim-config-install.sh; chmod +x uninstall-nvim.sh
+cd ..
 cd ..
 cd zsh
 chmod +x install.sh
-rm -rf old
-cd $HOME
 
 cd $HOME
 rm -rf Repo
