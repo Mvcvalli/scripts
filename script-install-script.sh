@@ -2,15 +2,13 @@
 
 cd ~/.local
 
-git clone https://github.com/Mvcvalli/scripts.git
+git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 
-cd scripts
-
-rm -rf .git
+cd scripts; rm -rf .git
 
 cd linux/arch
 
-chmod +x arch-bootstrap.sh arch-cleanup.sh arch-update.sh
+chmod +x arch-bootstrap.sh; chmod +x arch-cleanup.sh; chmod +x arch-update.sh
 
 cd ..
 
@@ -24,12 +22,11 @@ cd ..
 
 cd macOS
 
-chmod +x bootstrap.sh cleanup.sh git-install.sh update.sh
+chmod +x bootstrap.sh; chmod +x cleanup.sh; chmod +x git-install.sh; chmod +x update.sh
 
 cd nvim
 
-chmod +x ~/.local/scripts/macOS/nvim/\ nvim-config-install.sh
-chmod +x uninstall-nvim.sh
+chmod +x \ nvim-config-install.sh; chmod +x uninstall-nvim.sh
 
 cd ..
 cd ..
