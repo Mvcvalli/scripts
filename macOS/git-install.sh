@@ -30,7 +30,10 @@ mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vim ~/
 cd $HOME
 
-# Installing scripts.
+#  Vim plugins install. 
+vim -c "PlugUpdate|q|q"
+
+# Installing Scripts.
 mkdir .local
 cd ~/.local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
