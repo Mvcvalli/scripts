@@ -31,7 +31,7 @@ mv ~/Repo/dotfiles/.vim ~/
 cd $HOME
 
 #  Vim plugins install. 
-vim -c "PlugUpdate|q|q"
+fish; sleep 8; vim -c "PlugUpdate|q|q"
 
 # Installing Scripts.
 mkdir .local
