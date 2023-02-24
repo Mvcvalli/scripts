@@ -29,7 +29,6 @@ vim
 fish
 exa
 newsboat
-pipes-sh
 )
 
 cask=(
@@ -38,29 +37,14 @@ mailspring
 librewolf
 mpv
 onyx
-qbittorrent
 )
 
 brew install ${brew[@]}        #Homebrew App Installer
 brew install --cask ${cask[@]} #Casks Installer
 
-# Installing sxiv 
-brew install sxiv
-brew install --formula $(brew --repository homebrew/core)/Formula/sxiv.rb
-
-# Uninstall Unneeded Dependencies.
-brew uninstall --ignore-dependencies ffmpeg gnutls libbluray python@3.10 python@3.11 yt-dlp
-
-rm -rf /usr/local/etc/gnutls
-rm -rf /usr/local/etc/gnutls/cert.pem
-
-# Installing Kristall (Graphical Gemini & Gopher client)
-cd ~
-brew install qt@5 openssl
-brew link qt5 # to enable use of qmake
-git clone --depth 1 https://github.com/MasterQ32/kristall.git
-make build/kristall
-cd ~
+# Installing skhd
+brew install koekeishiya/formulae/skhd
+brew services start skhd
 
 echo "Installing dotfiles..."
 mkdir Repo && cd Repo
