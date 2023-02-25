@@ -30,9 +30,6 @@ mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vim ~/
 cd $HOME
 
-#  Vim plugins install. 
-fish; sleep 8; vim -c "PlugUpdate|q|q"
-
 # Installing Scripts.
 mkdir .local
 cd ~/.local
@@ -56,3 +53,7 @@ chmod +x install.sh
 
 cd $HOME
 rm -rf Repo
+
+vim -c "PlugUpdate|q|q"
+sleep 10; 
+fish
