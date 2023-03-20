@@ -54,6 +54,8 @@ chmod +x install.sh
 cd $HOME
 rm -rf Repo
 
+brew services restart skhd
+
 vim -c "PlugUpdate|q|q"
 sleep 10; 
 fish
