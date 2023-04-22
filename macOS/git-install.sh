@@ -56,6 +56,4 @@ rm -rf Repo
 
 brew services restart skhd
 
-vim -c "PlugUpdate|q|q"
-sleep 10; 
-fish
+fish_add_path /usr/local/sbin
