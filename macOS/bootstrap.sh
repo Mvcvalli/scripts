@@ -37,6 +37,9 @@ mailspring
 librewolf
 mpv
 onyx
+font-hack-nerd-font
+font-iosevka-nerd-font
+noto-fonts-emoji
 )
 
 brew install ${brew[@]}        #Homebrew App Installer
