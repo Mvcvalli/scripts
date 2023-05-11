@@ -56,4 +56,5 @@ rm -rf Repo
 
 brew services restart skhd
 
+fish
 fish_add_path /usr/local/sbin
