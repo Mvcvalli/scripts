@@ -26,7 +26,7 @@ echo "Cleaning up LaunchServices to remove duplicates in the “Open With” men
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder
 
 echo ' '
-echo "Recursively deleting `.DS_Store` files..."
+echo "Recursively deleting ".DS_Store" files..."
 sudo find . -type f -name '*.DS_Store' -ls -delete
 
 echo ' '
