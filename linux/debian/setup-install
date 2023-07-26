@@ -1,0 +1,78 @@
+echo "Before running this script, please make sure you understand what this script dose and the changes that it makes to your system."
+echo "IF YOU DO NOT UNDERSTAND WHAT THIS SCRIPT DOSE, PLEASE DO NOT RUN IT"
+
+echo "Press [ENTER] key when ready to continue"
+read y
+echo ' '
+
+echo "An interent connection is required when running this script."
+echo "This script is desigend to be run from your home directory. Please put this script in your home directory before running."
+echo ' '
+
+echo "Press [ENTER] key when ready to continue"
+echo ' '
+
+# Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
+sudo -v
+
+# Moving to home directory at the beginning of the process
+cd ~
+
+# xdg-user-dirs
+mkdir ~/personal/dox
+mkdir ~/personal/dl
+mkdir ~/personal/media/pix
+mkdir ~/personal/media/vid
+
+xdg-user-dirs-update --set DESKTOP ~
+xdg-user-dirs-update --set DOCUMENTS ~/personal/dox
+xdg-user-dirs-update --set DOWNLOAD ~/personal/dl
+xdg-user-dirs-update --set MUSIC ~
+xdg-user-dirs-update --set PICTURES ~/personal/media/pix
+xdg-user-dirs-update --set PUBLIC ~
+xdg-user-dirs-update --set TEMPLATES ~
+xdg-user-dirs-update --set VIDEOS ~/personal/media/vid
+
+xdg-user-dirs-update
+xdg-user-dirs-update --force
+xdg-user-dirs-gtk-update
+xdg-user-dirs-gtk-update --force
+
+rm -rf Desktop
+rm -rf Documents
+rm -rf Downloads
+rm -rf Music
+rm -rf Pictures
+rm -rf Public
+rm -rf Templates
+rm -rf Videos
+
+# System Update and Upgrade
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install --fix-missing -y
+sudo apt upgrade --allow-downgrades -y
+sudo apt full-upgrade --allow-downgrades -y
+
+# System Clean Up
+sudo apt install -f
+sudo apt autoremove -y
+sudo apt autoclean
+sudo apt clean
+
+# Install APT packages
+sudo apt install -y \
+git \
+exa \
+zsh \
+mpv \
+sxiv \
+neovim \
+newsboat \
+alacritty \
+
+sudo apt update
+sudo apt upgrade
+
+echo "Install complete!"
+echo "Please restart your computer now"
