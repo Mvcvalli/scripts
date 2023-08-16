@@ -35,6 +35,7 @@ cask=(
 alacritty
 mailspring
 librewolf
+raycast
 mpv
 onyx
 font-hack-nerd-font
@@ -44,10 +45,6 @@ noto-fonts-emoji
 
 brew install ${brew[@]}        #Homebrew App Installer
 brew install --cask ${cask[@]} #Casks Installer
-
-# Installing skhd
-brew install koekeishiya/formulae/skhd
-brew services start skhd
 
 echo "Installing dotfiles..."
 mkdir Repo && cd Repo

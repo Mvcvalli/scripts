@@ -74,5 +74,21 @@ alacritty \
 sudo apt update
 sudo apt upgrade
 
+# Dotfiles Install.
+cd ~
+mkdir repo
+git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
+cd repo/.dotfiles
+mv .zshenv ~
+mv .gitattributes ~
+mv .newsboat ~
+cd .config
+mv alacritty ~/.config
+mv mpv ~/.config
+mv nvim ~/.config
+mv zsh ~/.config
+cd ~
+rm -rf repo
+
 echo "Install complete!"
 echo "Please restart your computer now"
