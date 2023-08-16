@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Update
+sudo apt-get update -y
+echo ''
+
+# Upgrade
+echo "Upgrade"
+sudo apt-get upgrade -y
+echo ''
+
+# Distribution Upgrade
+echo "Distribution Upgrade"
+sudo apt-get dist-upgrade -y
+echo ''
+
+# Auto remove
+echo "Auto Remove"
+sudo apt-get remove -y
+sudo apt-get autoremove -y
+echo ''
+
+# Auto clean
+echo "Auto Clean"
+sudo apt-get clean -y
+sudo apt-get autoclean -y
+echo ''
