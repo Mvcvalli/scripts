@@ -15,23 +15,23 @@ echo ' '
 # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once.
 sudo -v
 
-# Moving to home directory at the beginning of the process
+# Moving to home directory at the beginning of the process.
 cd ~
 
-# xdg-user-dirs
+# xdg-user-dirs.
 mkdir ~/personal/dox
 mkdir ~/personal/dl
-mkdir ~/personal/media/pix
-mkdir ~/personal/media/vid
+mkdir ~/personal/pix
+mkdir ~/personal/vid
 
 xdg-user-dirs-update --set DESKTOP ~
 xdg-user-dirs-update --set DOCUMENTS ~/personal/dox
 xdg-user-dirs-update --set DOWNLOAD ~/personal/dl
 xdg-user-dirs-update --set MUSIC ~
-xdg-user-dirs-update --set PICTURES ~/personal/media/pix
+xdg-user-dirs-update --set PICTURES ~/personal/pix
 xdg-user-dirs-update --set PUBLIC ~
 xdg-user-dirs-update --set TEMPLATES ~
-xdg-user-dirs-update --set VIDEOS ~/personal/media/vid
+xdg-user-dirs-update --set VIDEOS ~/personal/vid
 
 xdg-user-dirs-update
 xdg-user-dirs-update --force
@@ -47,20 +47,20 @@ rm -rf Public
 rm -rf Templates
 rm -rf Videos
 
-# System Update and Upgrade
+# System Update and Upgrade.
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install --fix-missing -y
 sudo apt upgrade --allow-downgrades -y
 sudo apt full-upgrade --allow-downgrades -y
 
-# System Clean Up
+# System Clean Up.
 sudo apt install -f
 sudo apt autoremove -y
 sudo apt autoclean
 sudo apt clean
 
-# Install APT packages
+# Install APT packages.
 sudo apt install -y \
 git \
 exa \
@@ -74,21 +74,21 @@ alacritty \
 sudo apt update
 sudo apt upgrade
 
-# Dotfiles Install.
+# Linking up dotfiles.
 cd ~
-mkdir repo
+cd personal
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
-cd repo/.dotfiles
-mv .zshenv ~
-mv .gitattributes ~
-mv .newsboat ~
-cd .config
-mv alacritty ~/.config
-mv mpv ~/.config
-mv nvim ~/.config
-mv zsh ~/.config
-cd ~
-rm -rf repo
+rm -rf ~/.config
+ln -s ~/personal/.dotfiles/.config ~
+ln -s ~/personal/.dotfiles/.zshenv ~
+ln -s ~/personal/.dotfiles/.newsboat ~
+
+# Installing vim-plug (for nvim).
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# Install nvim plugins
+nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
 
 echo "Install complete!"
 echo "Please restart your computer now"

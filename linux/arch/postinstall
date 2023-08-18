@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+echo "An internet connection is required in order for this script to work."
+echo "Before running, ensure this script is in the home directory"
+echo "Before running, ensure git and xdg-user-dirs is installed."
+sudo pacman -Syu
+sudo pacman -S git xdg-user-dirs
+cd ~
+echo " "
+echo "Press [ENTER] key when ready to continue"
+read y
+echo " "
+
+# Set up YAY (AUR Helper)
+sudo pacman -S base-devel
+cd ~/.config
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ~
+
+# xdg-user-dirs
+mkdir ~/personal/dox
+mkdir ~/personal/dl
+mkdir ~/personal/pix
+mkdir ~/personal/vid
+
+xdg-user-dirs-update --set DESKTOP ~
+xdg-user-dirs-update --set DOCUMENTS ~/personal/dox
+xdg-user-dirs-update --set DOWNLOAD ~/personal/dl
+xdg-user-dirs-update --set MUSIC ~
+xdg-user-dirs-update --set PICTURES ~/personal/pix
+xdg-user-dirs-update --set PUBLIC ~
+xdg-user-dirs-update --set TEMPLATES ~
+xdg-user-dirs-update --set VIDEOS ~/personal/vid
+
+xdg-user-dirs-update
+xdg-user-dirs-update --force
+xdg-user-dirs-gtk-update
+xdg-user-dirs-gtk-update --force
+
+rm -rf Desktop Documents Downloads Music Pictures Public Templates Videos
+
+# Linking up dotfiles.
+rm -rf .config
+cd personal
+git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
+sudo ln -s ~/personal/.dotfiles/.config ~
+sudo ln -s ~/personal/.dotfiles/.newsboat ~
+sudo ln -s ~/personal/.dotfiles/..zshenv ~
+
+# Installing packages
+pacman=(
+alacritty
+neovim
+mpv
+exa
+zsh
+)
+
+yay=(
+newsboat-git
+librewolf
+sxiv
+)
+
+sudo pacman -S ${pacman[@]}
+yay -S ${yay[@]}
+
+# Neovim
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo " "
+nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
