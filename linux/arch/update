@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo 'Updating Applications...'
+    sudo pacman -Syu
+    yay -Syu
+
+echo ' '
+echo 'Removing unused packages...'
+    pacman -Qtdq | pacman -Rns -
+
+echo ' '
+echo 'Cleaning caches & directories...'
+    pacman -Sc
+    yay -Sc
+
+echo ' '
+echo 'Updating Complete!'
