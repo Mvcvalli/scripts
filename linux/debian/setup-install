@@ -90,5 +90,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # Install nvim plugins
 nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
 
+# Changing shell to zsh
+sudo chsh -s $(which zsh)
+zsh
+# Installing zap (zsh plugin manger)
+
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+
 echo "Install complete!"
 echo "Please restart your computer now"
