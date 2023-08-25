@@ -8,7 +8,7 @@ echo "Press [ENTER] key when ready to continue"
 read y
 
 sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once
-cd ~ 	  # Moving to home directory at the beginning of the process
+cd ~ || exit 	  # Moving to home directory at the beginning of the process
 
 echo "Installing Xcode..."
 xcode-select --install
@@ -47,24 +47,24 @@ brew install ${brew[@]}        #Homebrew App Installer
 brew install --cask ${cask[@]} #Casks Installer
 
 echo "Installing dotfiles..."
-mkdir Repo && cd Repo
+mkdir Repo && cd Repo || exit
 git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
-cd ~
+cd ~ || exit
 
 # Removing unnecessary files.
 rm -rf .config # One could exist, idk.
 rm -rf .local  # Again, one could exist, idk.
-cd ~/Repo/dotfiles/.config/nvim
+cd ~/Repo/dotfiles/.config/nvim || exit
 rm -rf .git
-cd ~
+cd ~ || exit
 
 # Moving shit around
 mv ~/Repo/dotfiles/.config ~/
 mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vimrc ~/
-cd ~
+cd ~ || exit
 
-cd ~
+cd ~ || exit
 rm -rf Repo
 
 echo ''
