@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Checking to see if ~/.local exists.
+dir=/home/mason/.local
+if [ ! -d $dir ]
+then
+     mkdir $dir
+else
+     echo "Directory exists"
+fi
+
+# Pulling scripts directory down from Git.
+cd ~/.local
+git clone --depth 1 https://github.com/Mvcvalli/scripts.git
+
+# Making scripts executable
+cd ~/.local/scripts/linux/arch
+chmod +x postinstall update
+cd ~/.local/scripts/linux/debian
+chmod +x setup-install update
+cd ../../macOS
+chmod +x bootstrap.sh cleanup.sh git-install.sh update.sh

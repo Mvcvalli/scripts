@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "Before running this script, please make sure you understand what this script dose and the changes that it makes to your system."
 echo "IF YOU DO NOT UNDERSTAND WHAT THIS SCRIPT DOSE, PLEASE DO NOT RUN IT"
 
