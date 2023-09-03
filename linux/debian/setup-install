@@ -72,6 +72,7 @@ sxiv \
 neovim \
 newsboat \
 alacritty \
+zathura \
 
 sudo apt update
 sudo apt upgrade

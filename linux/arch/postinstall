@@ -56,7 +56,10 @@ neovim
 mpv
 exa
 zsh
+zathura
+zathura-pdf-mupdf
 noto-fonts
+noto-fonts-emoji
 ttc-iosevka
 )
 
