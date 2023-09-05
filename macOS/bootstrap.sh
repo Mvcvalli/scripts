@@ -1,16 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
+# OSX Post Install Script
 
-echo "An internet connection is needed to use this script."
-echo "Before running this script make sure to adapt it to your needs and preferences before using it."
-echo "This script to work it must be in your home directory"
-echo ' '
-echo "Press [ENTER] key when ready to continue"
-read y
+# Giving sudo privileges and moving to home directory.
+sudo -v && cd ~ || exit
 
-sudo -v # Give sudo privileges ahead of time, so that we hopefully only have to enter a password once
-cd ~ || exit 	  # Moving to home directory at the beginning of the process
+# Keep-alive sudo until "bootstrap.sh" has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-echo "Installing Xcode..."
+# Install xcode command line tools
 xcode-select --install
 
 # Checking for Homebrew. Install if we don't have it.
@@ -19,53 +16,58 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "Updating homebrew..."
+# Updating and upgrading Homebrew.
 brew update && brew upgrade
 
-echo "Installing packages..."
+# Installing Packages>
+
 brew=(
 git
+exa
 vim
 fish
-exa
 newsboat
-)
+coreutils
+     )
 
 cask=(
-alacritty
 mailspring
+alacritty
 librewolf
 raycast
-mpv
 onyx
+mpv
+     )
+
+fonts=(
 font-hack-nerd-font
 font-iosevka-nerd-font
 noto-fonts-emoji
-)
+      )
 
-brew install ${brew[@]}        #Homebrew App Installer
-brew install --cask ${cask[@]} #Casks Installer
+brew install ${brew[@]} # Homebrew App Installer.
+brew install --cask --appdir="/Applications" ${cask[@]}  # Casks Installer.
+brew tap caskroom/fonts && brew install --cask ${fonts[@]} # fonts Installer.
 
-echo "Installing dotfiles..."
-mkdir Repo && cd Repo || exit
+# Installing dotfiles.
+cd ~/Documents || exit
 git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
-cd ~ || exit
+rm -rf .config && rm -rf .newsboat
+ln -s ~/Documents/dotfiles/.config ~
+ln -s ~/Documents/dotfiles/.newsboat ~
+ln -s ~/Documents/dotfiles/.vimrc ~
 
-# Removing unnecessary files.
-rm -rf .config # One could exist, idk.
-rm -rf .local  # Again, one could exist, idk.
-cd ~/Repo/dotfiles/.config/nvim || exit
-rm -rf .git
-cd ~ || exit
+# Updating, upgrading, and cleaning up.
+brew upgrade && brew update
+brew update --cask --greedy && brew upgrade --cask --greedy
+brew cleanup -s && brew -v cleanup --prune=2
+rm -rf "$(brew --cache)"
 
-# Moving shit around
-mv ~/Repo/dotfiles/.config ~/
-mv ~/Repo/dotfiles/.newsboat ~/
-mv ~/Repo/dotfiles/.vimrc ~/
-cd ~ || exit
+# Installing Vim plugins.
+vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
 
-cd ~ || exit
-rm -rf Repo
+# Add fish shell to /etc/shells file.
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 
-echo ''
-echo "Install complete"
+# Change default shell to Fish.
+chsh -s /usr/local/bin/fish
