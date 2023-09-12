@@ -55,7 +55,8 @@ git clone --depth 1 https://github.com/Mvcvalli/dotfiles.git
 rm -rf .config && rm -rf .newsboat
 ln -s ~/Documents/dotfiles/.config ~
 ln -s ~/Documents/dotfiles/.newsboat ~
-ln -s ~/Documents/dotfiles/.vimrc ~
+ln -s ~/Documents/dotfiles/.gitconfig ~
+ln -s ~/Documents/dotfiles/.vim ~
 
 # Updating, upgrading, and cleaning up.
 brew upgrade && brew update
