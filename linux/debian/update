@@ -25,3 +25,13 @@ echo "Auto Clean"
 sudo apt-get clean -y
 sudo apt-get autoclean -y
 echo ''
+
+# Delete Empty Files and Directories.
+find . -type d -empty -print -delete -o -type f -empty -print -delete
+
+# Cleanup of ~/.config and ~/
+rm -rf=(
+~/.config/zsh/.zsh_history
+~/.config/mpv/watch_later
+~/.pki
+)
