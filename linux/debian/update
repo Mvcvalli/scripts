@@ -5,33 +5,40 @@ sudo apt-get update -y
 echo ''
 
 # Upgrade
-echo "Upgrade"
 sudo apt-get upgrade -y
 echo ''
 
 # Distribution Upgrade
-echo "Distribution Upgrade"
-sudo apt-get dist-upgrade -y
+    sudo apt-get dist-upgrade -y
 echo ''
 
 # Auto remove
-echo "Auto Remove"
-sudo apt-get remove -y
-sudo apt-get autoremove -y
+    sudo apt-get remove -y
+    sudo apt-get autoremove -y
 echo ''
 
 # Auto clean
-echo "Auto Clean"
-sudo apt-get clean -y
-sudo apt-get autoclean -y
+    sudo apt-get clean -y
+    sudo apt-get autoclean -y
 echo ''
 
 # Delete Empty Files and Directories.
-find . -type d -empty -print -delete -o -type f -empty -print -delete
+    find . -type d -empty -print -delete -o -type f -empty -print -delete
+echo ' '
 
 # Cleanup of ~/.config and ~/
-rm -rf=(
-~/.config/zsh/.zsh_history
-~/.config/mpv/watch_later
-~/.pki
-)
+    rm -rf ~/.config/zsh/.zsh_history
+    rm -rf ~/.config/mpv/watch_later
+    rm -rf ~/.pki
+echo ' '
+
+# Pulling down any new dotfiles.
+    cd ~/personal/.dotfiles
+    git pull
+    cd ~
+echo ' '
+
+# Updating Neovim plugins
+    nvim -es -u init.vim -i NONE -c "PlugClean" -c "qa"
+    nvim -es -u init.vim -i NONE -c "PlugUpdate" -c "qa"
+echo ' '

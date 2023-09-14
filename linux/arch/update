@@ -5,13 +5,28 @@ echo 'Updating Applications...'
     yay -Syu
 
 echo ' '
+echo 'Cleaning caches & directories...'
+    pacman -Scc
+    yay -Scc
+
+echo ' '
 echo 'Removing unused packages...'
     pacman -Qtdq | pacman -Rns -
+    pacman -Qqd | pacman -Rsu -
 
 echo ' '
-echo 'Cleaning caches & directories...'
-    pacman -Sc
-    yay -Sc
+echo 'Deleting empty files and directories...'
+    find . -type d -empty -print -delete -o -type f -empty -print -delete
 
 echo ' '
-echo 'Updating Complete!'
+echo 'Pulling down any new .dotfiles...'
+    cd ~/personal/.dotfiles
+    git pull
+    cd ~
+
+echo ' '
+echo 'Updating Neovim plugins...'
+    nvim -es -u init.vim -i NONE -c "PlugClean" -c "qa"
+    nvim -es -u init.vim -i NONE -c "PlugUpdate" -c "qa"
+
+echo 'Updating Done.'
