@@ -40,7 +40,8 @@ echo "Also, clearing Apple’s System Logs to improve shell startup speed."
 echo "Finally, clear download history from quarantine."
 sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
 
-# Delete Empty Files and Directories.
+echo ' '
+echo "Delete Empty Files and Directories."
 sudo find . -type d -empty -print -delete -o -type f -empty -print -delete
 
 echo ' '
