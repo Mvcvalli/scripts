@@ -5,9 +5,9 @@ echo "Before running, ensure this script is in the home directory"
 echo "Before running, ensure git and xdg-user-dirs is installed."
 echo " "
 
-sudo pacman -Syu
-sudo pacman -S git xdg-user-dirs
-cd ~
+sudo pacman --noconfirm -Syu
+sudo pacman --noconfirm -S git xdg-user-dirs
+cd ~ || exit
 echo " "
 
 echo "Press [ENTER] key when ready to continue"
@@ -15,12 +15,12 @@ read y
 echo " "
 
 # Set up YAY (AUR Helper)
-sudo pacman -S base-devel
-cd ~/.config
+sudo pacman --noconfirm -S base-devel
+cd ~/.config || exit
 git clone https://aur.archlinux.org/yay.git
-cd yay
+cd yay || exit
 makepkg -si
-cd ~
+cd ~ || exit
 echo " "
 
 # xdg-user-dirs
@@ -48,7 +48,7 @@ echo " "
 
 # Linking up dotfiles.
 rm -rf .config
-cd personal
+cd personal || exit
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
 sudo ln -s ~/personal/.dotfiles/.config ~
 sudo ln -s ~/personal/.dotfiles/.newsboat ~
@@ -72,13 +72,18 @@ ttc-iosevka
 
 yay=(
 newsboat-git
-librewolf
 sxiv
 )
 
-sudo pacman -S ${pacman[@]}
+sudo pacman --noconfirm -S ${pacman[@]}
 yay -S ${yay[@]}
 echo " "
+
+# Installng LibreWolf
+cd ~/.config || exit
+git clone https://aur.archlinux.org/librewolf.git
+cd librewolf || exit
+makepkg -si
 
 # Neovim
 
