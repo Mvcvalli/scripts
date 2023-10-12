@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Setting shortcut to open all web MIME types with a single application:
+xdg-settings set default-web-browser librewolf.desktop
+
+# Setting default PDF viewer:
+xdg-mime default zathura.desktop application/pdf
+
+# Setting default application for viewing images
+xdg-mime default nsxiv.desktop image/jpg
+xdg-mime default nsxiv.desktop image/png
+xdg-mime default nsxiv.desktop image/gif
+xdg-mime default nsxiv.desktop image/jpeg
+xdg-mime default nsxiv.desktop image/webp
+
+# Setting default application for watching videos
+xdg-mime default mpv.desktop video/mp4
+xdg-mime default mpv.desktop video/webm
+xdg-mime default mpv.desktop video/mov

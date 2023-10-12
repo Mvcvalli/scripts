@@ -1,0 +1,25 @@
+# Default settings for user directories
+#!/bin/sh
+cd $HOME
+
+xdg-user-dirs-update --set DESKTOP $HOME
+xdg-user-dirs-update --set DOCUMENTS $HOME/personal/dox
+xdg-user-dirs-update --set DOWNLOAD $HOME/personal/dl
+xdg-user-dirs-update --set MUSIC $HOME
+xdg-user-dirs-update --set PICTURES $HOME/personal/pix
+xdg-user-dirs-update --set PUBLIC $HOME
+xdg-user-dirs-update --set TEMPLATES $HOME
+xdg-user-dirs-update --set VIDEOS $HOME/personal/vid
+
+xdg-user-dirs-update --force
+xdg-user-dirs-gtk-update --force
+
+cd $HOME
+rm -rf Desktop
+rm -rf Documents
+rm -rf Downloads
+rm -rf Music
+rm -rf Pictures
+rm -rf Public
+rm -rf Templates
+rm -rf Videos

@@ -13,6 +13,7 @@ sudo -v
 
 # Moving to home directory at the beginning of the process.
 cd ~
+clear
 
 # xdg-user-dirs.
 mkdir ~/personal/dox
@@ -20,18 +21,16 @@ mkdir ~/personal/dl
 mkdir ~/personal/pix
 mkdir ~/personal/vid
 
-xdg-user-dirs-update --set DESKTOP ~
-xdg-user-dirs-update --set DOCUMENTS ~/personal/dox
-xdg-user-dirs-update --set DOWNLOAD ~/personal/dl
-xdg-user-dirs-update --set MUSIC ~
-xdg-user-dirs-update --set PICTURES ~/personal/pix
-xdg-user-dirs-update --set PUBLIC ~
-xdg-user-dirs-update --set TEMPLATES ~
-xdg-user-dirs-update --set VIDEOS ~/personal/vid
+xdg-user-dirs-update --set DESKTOP $HOME
+xdg-user-dirs-update --set DOCUMENTS $HOME/personal/dox
+xdg-user-dirs-update --set DOWNLOAD $HOME/personal/dl
+xdg-user-dirs-update --set MUSIC $HOME
+xdg-user-dirs-update --set PICTURES $HOME/personal/pix
+xdg-user-dirs-update --set PUBLIC $HOME
+xdg-user-dirs-update --set TEMPLATES $HOME
+xdg-user-dirs-update --set VIDEOS $HOME/personal/vid
 
-xdg-user-dirs-update
 xdg-user-dirs-update --force
-xdg-user-dirs-gtk-update
 xdg-user-dirs-gtk-update --force
 
 rm -rf Desktop
@@ -62,14 +61,15 @@ echo " "
 # Install APT packages.
 sudo apt install -y \
 git \
+vrms \
 exa \
-zsh \
 mpv \
-sxiv \
+nsxiv \
 neovim \
 newsboat \
 alacritty \
 zathura \
+lf \
 
 sudo apt update
 sudo apt upgrade
@@ -97,6 +97,7 @@ nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
 echo " "
 
 # Changing shell to zsh
+sudo apt install zsh
 sudo chsh -s $(which zsh)
 zsh
 echo " "
