@@ -1,6 +1,11 @@
-# Default settings for user directories
 #!/bin/sh
+# Default settings for user directories
+
 cd $HOME
+mkdir ~/personal/dox
+mkdir ~/personal/dl
+mkdir ~/personal/pix
+mkdir ~/personal/vid
 
 xdg-user-dirs-update --set DESKTOP $HOME
 xdg-user-dirs-update --set DOCUMENTS $HOME/personal/dox
