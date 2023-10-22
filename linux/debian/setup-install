@@ -38,6 +38,7 @@ newsboat \
 alacritty \
 zathura \
 lf \
+curl \
 
 sudo apt update
 sudo apt upgrade
@@ -45,13 +46,12 @@ echo " "
 
 # Linking up dotfiles.
 cd ~
-cd personal
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
 rm -rf ~/.config
-ln -s ~/personal/.dotfiles/.config ~
-ln -s ~/personal/.dotfiles/.zshenv ~
-ln -s ~/personal/.dotfiles/.newsboat ~
-ln -s ~/personal/.dotfiles/.gitconfig ~
+mv ~/.dotfiles/.config ~
+mv ~/.dotfiles/.zshenv ~
+mv ~/.dotfiles/.newsboat ~
+mv ~/.dotfiles/.gitconfig ~
 cd ~
 echo " "
 
