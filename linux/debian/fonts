@@ -1,0 +1,11 @@
+#!bin/sh
+
+# Installing Iosevka
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.tar.xz
+echo ''
+tar -xf Iosevka.tar.xz
+echo ''
+sudo mv *.ttf /usr/share/fonts/
+sudo fc-cache
+echo ''
+rm -rf LICENSE.md readme.md README.md

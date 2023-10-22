@@ -1,0 +1,6 @@
+#!/bin/sh
+#Installing GitHub-Desktop. Only works on Debian.
+
+wget https://github.com/shiftkey/desktop/releases/download/release-3.2.1-linux1/GitHubDesktop-linux-3.2.1-linux1.deb
+
+sudo dpkg -i GitHubDesktop-linux-3.2.1-linux1.deb

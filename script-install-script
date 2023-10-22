@@ -17,9 +17,8 @@ git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 cd ~/.local/scripts/linux/arch
 chmod +x postinstall update
 cd ~/.local/scripts/linux/debian
-chmod +x librewolf-install setup-install update
+chmod +x fonts github-desktop librewolf-install setup-install update
 cd ~/.local/scripts/linux/xdg
 chmod +x mime user-dirs
 cd ~/.local/scripts/macOS
 chmod +x bootstrap.sh cleanup.sh git-install.sh update.sh
-
