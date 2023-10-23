@@ -1,4 +1,5 @@
 #!bin/sh
+# All .ttf files need to go under /usr/share/fonts/ or /usr/local/share/fonts/ somewhere, and run fc-cache as root.
 
 # Installing Iosevka
 curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.tar.xz
