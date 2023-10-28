@@ -1,0 +1,15 @@
+#!/bin/sh
+
+rm -rf Documents/dotfiles-main
+unzip dotfiles-main.zip
+
+rm -rf ~/.config
+rm -rf ~/.newsboat
+rm -rf ~/.vim
+rm -rf ~/.gitconfig
+
+sudo ln -s ~/Documents/dotfiles-main/.config ~
+sudo ln -s ~/Documents/dotfiles-main/.newsboat ~
+sudo ln -s ~/Documents/dotfiles-main/.vim ~
+sudo ln -s ~/Documents/dotfiles-main/.gitconfig ~
+
