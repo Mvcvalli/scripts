@@ -22,10 +22,16 @@ echo ''
     sudo apt-get autoclean -y
 echo ''
 
+# Cleanup of ~/.config and ~/
+    rm -rf ~/.config/zsh/.zsh_history
+    rm -rf ~/.config/mpv/watch_later
+    rm -rf ~/.pki
+echo ' '
+
 # Pulling down any new dotfiles.
-    cd ~/personal/.dotfiles
+    cd ~/personal/.dotfiles || exit
     git pull
-    cd ~
+    cd ~ || exit
 echo ' '
 
 # Updating Neovim plugins

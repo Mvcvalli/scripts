@@ -45,14 +45,14 @@ sudo apt upgrade
 echo " "
 
 # Linking up dotfiles.
-cd ~
+cd ~ || exit
 git clone --depth 1 https://github.com/Mvcvalli/.dotfiles.git
 rm -rf ~/.config
 mv ~/.dotfiles/.config ~
 mv ~/.dotfiles/.zshenv ~
 mv ~/.dotfiles/.newsboat ~
 mv ~/.dotfiles/.gitconfig ~
-cd ~
+cd ~ || exit
 echo " "
 
 # Installing vim-plug (for nvim).
