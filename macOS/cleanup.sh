@@ -8,12 +8,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 oldAvailable=$(df / | tail -1 | awk '{print $4}')
 
-echo ''
-echo 'Empty the Trash on all mounted volumes and the main HDD...'
-sudo rm -rfv /Volumes/*/.Trashes/* &>/dev/null
-sudo rm -rfv ~/.Trash/* &>/dev/null
+echo ' '
+echo "Emptying the Trash on all mounted volumes and the main HDD."
+echo "Also, clearing Apple’s System Logs to improve shell startup speed."
+echo "Finally, clear download history from quarantine."
+sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
 
-echo ''
 echo 'Clear System Log Files...'
 sudo rm -rfv /private/var/log/asl/*.asl &>/dev/null
 sudo rm -rfv /Library/Logs/DiagnosticReports/* &>/dev/null
@@ -35,6 +35,10 @@ brew autoremove
 brew cleanup -s
 brew -v cleanup --prune=2
 rm -rf "$(brew --cache)"
+
+echo ' '
+echo "Delete Empty Files and Directories."
+sudo find . -type d -empty -print -delete -o -type f -empty -print -delete
 
 echo ' '
 echo "All done!"
