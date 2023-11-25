@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo apt-get install xfce4-screenshooter
+sudo apt install xfce4-whiskermenu-plugin
+sudo apt-get install xfce4-battery-plugin
