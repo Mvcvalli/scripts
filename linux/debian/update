@@ -29,12 +29,17 @@ echo ''
 echo ' '
 
 # Pulling down any new dotfiles.
-    cd ~/personal/.dotfiles || exit
+    cd ~/personal/dox/GitHub/.dotfiles || exit
     git pull
     cd ~ || exit
+echo ' '
+
+# Pulling down any new scripts
+    cd ~/personal/dox/GitHub/scripts || exit
+    git pull
+    cd ~ ||
 echo ' '
 
 # Updating Neovim plugins
     nvim -es -u init.vim -i NONE -c "PlugClean" -c "qa"
     nvim -es -u init.vim -i NONE -c "PlugUpdate" -c "qa"
-echo ' '
