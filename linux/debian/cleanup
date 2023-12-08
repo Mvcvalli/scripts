@@ -15,3 +15,8 @@ echo ' '
     rm -rf ~/.config/zsh/.zsh_history
     rm -rf ~/.config/mpv/watch_later
     rm -rf ~/.pki
+    rm -rf ~/.wget-hsts
+    rm -rf ~/.ICEauthority
+    rm -rf ~/.Xauthority
+    rm -rf ~/.xsession-errors
+    rm -rf ~/.gnupg
