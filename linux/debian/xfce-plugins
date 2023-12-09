@@ -4,3 +4,6 @@ sudo apt-get install xfce4-screenshooter
 sudo apt install xfce4-whiskermenu-plugin
 sudo apt-get install xfce4-battery-plugin
 sudo apt-get install xfce4-taskmanager
+sudo apt-get install thunar-archive-plugin
+sudo apt-get install thunar-media-tags-plugin
+sudo apt-get install thunar-volman
