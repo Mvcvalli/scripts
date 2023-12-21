@@ -12,6 +12,10 @@ echo ''
     sudo apt-get dist-upgrade -y
 echo ''
 
+# Fixing broken packages
+    sudo apt --fix-broken install
+echo ''
+
 # Auto remove
     sudo apt-get remove -y
     sudo apt-get autoremove -y
@@ -22,19 +26,6 @@ echo ''
     sudo apt-get autoclean -y
 echo ''
 
-# Cleanup of ~/.config and ~/
-    rm -rf ~/.config/zsh/.zsh_history
-    rm -rf ~/.config/mpv/watch_later
-    rm -rf ~/.pki
-echo ' '
-
-# Pulling down any new dotfiles.
-    cd ~/personal/.dotfiles || exit
-    git pull
-    cd ~ || exit
-echo ' '
-
 # Updating Neovim plugins
     nvim -es -u init.vim -i NONE -c "PlugClean" -c "qa"
     nvim -es -u init.vim -i NONE -c "PlugUpdate" -c "qa"
-echo ' '

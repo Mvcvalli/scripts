@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Cleanup apt cache
+    sudo apt-get -y autoremove --purge
+    sudo apt-get -y clean
+    sudo apt-get -y autoclean
+echo ' '
+
+# Delete Empty Files and Directories.
+    find . -type d -empty -print -delete -o -type f -empty -print -delete
+    sudo find . -type d -empty -print -delete -o -type f -empty -print -delete
+echo ' '
+
+# Cleanup of ~/.config and ~/
+    rm -rf ~/.config/zsh/.zsh_history
+    rm -rf ~/.config/mpv/watch_later
+    rm -rf ~/.pki
+    rm -rf ~/.wget-hsts
+    rm -rf ~/.ICEauthority
+    rm -rf ~/.Xauthority
+    rm -rf ~/.xsession-errors
+    rm -rf ~/.gnupg
