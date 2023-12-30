@@ -23,7 +23,7 @@ brew update && brew upgrade
 
 brew=(
 git
-exa
+eza
 vim
 fish
 newsboat
