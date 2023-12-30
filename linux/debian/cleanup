@@ -19,4 +19,5 @@ echo ' '
     rm -rf ~/.ICEauthority
     rm -rf ~/.Xauthority
     rm -rf ~/.xsession-errors
+    rm -rf ~/.xsession-errors.old
     rm -rf ~/.gnupg
