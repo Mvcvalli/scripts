@@ -24,7 +24,7 @@ brew update && brew upgrade
 brew=(
 git
 eza
-vim
+nvim
 fish
 newsboat
 coreutils
@@ -63,9 +63,6 @@ brew upgrade && brew update
 brew update --cask --greedy && brew upgrade --cask --greedy
 brew cleanup -s && brew -v cleanup --prune=2
 rm -rf "$(brew --cache)"
-
-# Installing Vim plugins.
-vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
 
 # Add fish shell to /etc/shells file.
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells

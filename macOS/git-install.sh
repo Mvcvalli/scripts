@@ -45,5 +45,9 @@ chmod +x bootstrap.sh; chmod +x cleanup.sh; chmod +x git-install.sh; chmod +x up
 cd $HOME
 rm -rf Repo
 
+# Installing vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 fish
 fish_add_path /usr/local/sbin
