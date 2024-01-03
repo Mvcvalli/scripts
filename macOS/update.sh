@@ -23,10 +23,4 @@ echo "Updating Applications..."
     brew upgrade --cask --greedy
 
 echo ' '
-echo "Updating Vim Plugins..."
-    vim -es -u vimrc -i NONE -c "PlugClean" -c "qa"
-    vim -es -u vimrc -i NONE -c "PlugUpgrade" -c "qa"
-    vim -es -u vimrc -i NONE -c "PlugUpdate" -c "qa"
-
-echo ' '
 echo "All done!"

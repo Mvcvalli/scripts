@@ -14,11 +14,15 @@ cd ~/.local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
 
 # Making scripts executable
-cd ~/.local/scripts/linux/arch
+cd scripts/linux/arch
 chmod +x postinstall update
-cd ~/.local/scripts/linux/debian
-chmod +x cleanup librewolf-install xfce-plugins fonts setup-install github-desktop update
-cd ~/.local/scripts/linux/xdg
+cd ..
+cd debian
+chmod +x cleanup fonts github-desktop librewolf-install setup-install update xfce-plugins
+cd ..
+cd xdg
 chmod +x mime user-dirs
-cd ~/.local/scripts/macOS
+cd ../..
+cd macOS
 chmod +x bootstrap.sh cleanup.sh dots-unzip git-install.sh update.sh
+cd $HOME

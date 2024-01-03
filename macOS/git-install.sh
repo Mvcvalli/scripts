@@ -29,25 +29,31 @@ mv ~/Repo/dotfiles/.config ~/
 mv ~/Repo/dotfiles/.newsboat ~/
 mv ~/Repo/dotfiles/.vim ~/
 cd $HOME
+rm -rf Repo
 
 # Installing Scripts.
 mkdir .local
 cd ~/.local
 git clone --depth 1 https://github.com/Mvcvalli/scripts.git
-cd scripts; rm -rf .git
+cd scripts
+chmod +x script-install-script
 cd linux/debian
-chmod +x setup-install
-chmod +x update
+chmod +x cleanup fonts github-desktop librewolf-install setup-install update xfce-plugins
+cd ..
+cd arch
+chmod +x postinstall update
+cd ..
+cd xdg
+chmod +x mime user-dirs
 cd ../..
 cd macOS
-chmod +x bootstrap.sh; chmod +x cleanup.sh; chmod +x git-install.sh; chmod +x update.sh
-
+chmod +x bootstrap.sh cleanup.sh dots-unzip git-install.sh update.sh
 cd $HOME
-rm -rf Repo
 
 # Installing vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-fish
+# Fish Shell
+clear & fish
 fish_add_path /usr/local/sbin
