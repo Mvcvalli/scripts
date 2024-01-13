@@ -29,6 +29,7 @@ echo ' '
 echo "Recursively deleting ".DS_Store" files..."
 sudo find . -type f -name '*.DS_Store' -ls -delete
 rm -rf ~/.DS_Store #Always seems to miss the file in my home directory.
+rm -rf ~/.terminfo
 
 echo ' '
 echo "Cleaning caches & directories..."

@@ -37,6 +37,9 @@ librewolf
 raycast
 onyx
 mpv
+balenaetcher
+qbittorrent
+element
      )
 
 fonts=(
