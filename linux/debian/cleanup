@@ -11,6 +11,12 @@ echo ' '
     sudo find . -type d -empty -print -delete -o -type f -empty -print -delete
 echo ' '
 
+# Remove any unused .deb archive files.
+sudo rm -rf /var/cache/apt/archives/*.deb
+
+# Remove any temporary files.
+sudo rm -rf /var/tmp/*
+
 # Cleanup of ~/.config and ~/
     rm -rf ~/.config/zsh/.zsh_history
     rm -rf ~/.config/mpv/watch_later
@@ -21,3 +27,9 @@ echo ' '
     rm -rf ~/.xsession-errors
     rm -rf ~/.xsession-errors.old
     rm -rf ~/.gnupg
+    rm -f .git*
+    rm -f .svn*
+    rm -f .hg*
+    rm -f .bzr*
+    rm -f .gitignore
+    rm -f .htaccess
