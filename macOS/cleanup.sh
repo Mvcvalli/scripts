@@ -28,7 +28,9 @@ echo "Cleaning up LaunchServices to remove duplicates in the “Open With” men
 echo ' '
 echo "Recursively deleting ".DS_Store" files..."
 sudo find . -type f -name '*.DS_Store' -ls -delete
-rm -rf ~/.DS_Store #Always seems to miss the file in my home directory.
+
+# Deleting other files.
+rm -rf ~/.local/share/fish/fish_history
 rm -rf ~/.terminfo
 
 echo ' '
